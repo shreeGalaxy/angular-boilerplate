@@ -9,6 +9,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { fakeBackendProvider } from './core/interceptors/fake-backend.interceptor';
 import { translateBrowserLoaderFactory } from './shared/translate-load-for-ssr/translate-browser.loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
     declarations: [AppComponent],
@@ -32,3 +33,7 @@ import { translateBrowserLoaderFactory } from './shared/translate-load-for-ssr/t
     bootstrap: [AppComponent]
 })
 export class AppModule {}
+// Loader for translation files (i.e. en.json)
+export function createTranslateLoader(http: HttpClient): object {
+    return new TranslateHttpLoader(http, "/assets/i18n/", ".json");
+}
