@@ -1,0 +1,96 @@
+@import '../../../../../assets/themes/_mixins.scss';
+@import '../../../../../assets/style/color.scss';
+:host {
+    > div {
+        height: calc(100vh - 113px);
+        max-width: calc(100% - 200px);
+        margin-left: auto;
+        overflow-y: auto;
+        @include flex(center, center);
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            height: calc(100vh - 182px);
+        }
+        & > div {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 15px;
+            max-height: 100%;
+            @media screen and (max-width: 991px) {
+                overflow-y: auto;
+            }
+            section {
+                text-align: center;
+                h2 {
+                    @include fonts(35px);
+                    margin: 0 0 15px;
+                }
+                input {
+                    border: 0;
+                    width: 100%;
+                    @include fonts(1rem);
+                    background-color: $Black;
+                    color: $PureWhite;
+                    border-radius: 4px;
+                    resize: none;
+                    padding: 10px 15px;
+                    outline: none;
+                    max-width: 300px;
+                    &::placeholder {
+                        color: $LightGray;
+                    }
+                }
+                + section {
+                    margin-top: 30px;
+                }
+            }
+            .card {
+                @include flex(flex-start, center, wrap);
+                > div {
+                    width: calc(50% - 20px);
+                    padding: 30px 15px;
+                    margin: 10px;
+                    background: $PureWhite;
+                    border-radius: 6px;
+                    text-align: center;
+                    box-shadow: 0 5px 15px 0px $lightWhiteRGB;
+                    @media screen and (min-width: 768px) and (max-width: 991px) {
+                        width: 100%;
+                        margin: 10px 0px;
+                    }
+                    @media screen and (max-width: 767px) {
+                        width: 100%;
+                        margin: 10px 0px;
+                    }
+                    svg {
+                        max-width: 70px;
+                        height: 70px;
+                        margin-bottom: 15px;
+                    }
+                    h3 {
+                        margin: 0 0 10px;
+                        color: $DARK;
+                    }
+                    p {
+                        @include fonts(16px);
+                        color: $DARK;
+                        max-width: 400px;
+                        margin: 0 auto 10px;
+                    }
+                }
+            }
+            @media screen and (max-width: 767px) {
+                overflow-y: scroll;
+            }
+
+            a {
+                @include button($PRIMARY, $PureWhite, $INFO, $PureWhite);
+                padding: 10px 20px;
+                @include fonts(14px);
+                text-transform: none;
+                margin-top: 10px;
+            }
+        }
+    }
+}

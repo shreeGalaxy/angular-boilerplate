@@ -1,0 +1,49 @@
+@import '../../../../assets/style/color.scss';
+section {
+    &.open {
+        visibility: inherit;
+        opacity: 1;
+    }
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    background: $darkWhiteRGB;
+    transition: opacity 250ms ease-in;
+    > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 200px;
+        max-width: 350px;
+        width: 95%;
+        padding: 15px 30px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        background: $DARK;
+        border-radius: 10px 0 10px 0;
+        box-shadow: 0 0 8px 4px $lightBlackRGB;
+        button.close {
+            background: none;
+            border: 1px solid;
+            cursor: pointer;
+            outline: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: $PureWhite;
+            border-radius: 50%;
+            padding: 4px 7px 3px;
+        }
+        h1 {
+            color: $PureWhite;
+        }
+    }
+}

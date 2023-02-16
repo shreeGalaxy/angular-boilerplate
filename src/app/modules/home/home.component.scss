@@ -1,0 +1,30 @@
+@import '../../../assets/themes/_mixins.scss';
+@import '../../../assets/style/color.scss';
+:host {
+    > div {
+        background: url(https://s3.amazonaws.com/codecademy-content/projects/broadway/bg.jpg);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: calc(100vh - 113px);
+        // max-width: calc(100% - 200px);
+        // margin-left: auto;
+        overflow-y: auto;
+        @include flex(center, center);
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            height: calc(100vh - 182px);
+        }
+        & > div {
+            padding: 15px;
+            text-align: center;
+        }
+        h1 {
+            color: $DARK;
+            @include h1Font;
+        }
+        a {
+            @include button($DARK, $PureWhite, $Pink900, $PureWhite);
+        }
+    }
+}

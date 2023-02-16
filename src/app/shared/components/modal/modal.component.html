@@ -1,0 +1,8 @@
+<ng-container *ngIf="isDisplay">
+    <section [class.open]="isOpen === 'open'" (click)="close()">
+        <div (click)="$event.stopPropagation()">
+            <button class="close" type="button" (click)="close()">X</button>
+            <h1>{{ message }}</h1>
+        </div>
+    </section>
+</ng-container>

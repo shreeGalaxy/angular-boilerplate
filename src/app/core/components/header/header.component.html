@@ -1,0 +1,68 @@
+<div>
+    <nav>
+        <h1>{{ 'GALAXY' | translate }}</h1>
+        <div>
+            <span class="mobile-menu" *ngIf="isMobile">
+                <img (click)="showMobDropdown = !showMobDropdown" src="../../../../assets/images/menu.png" />
+            </span>
+            <div *ngIf="showMobDropdown">
+                <div [ngClass]="isMobile ? 'mobile-only' : 'desktop-only'">
+                    <ul id="menu">
+                        <li>
+                            <a routerLink="/home">{{ 'HOME' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/about-us">{{ 'ABOUT' | translate }}</a>
+                        </li>
+                        <li>
+                            <a routerLink="/contact-us">{{ 'CONTACT' | translate }}</a>
+                        </li>
+                        <li *ngIf="readLocalStorageValue('Role') !== roleType">
+                            <a routerLink="auth/login">{{ 'LOGIN' | translate }}</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <select [(ngModel)]="lang" (click)="switchLang()">
+                            <option selected value="en">{{ 'ENGLISH' | translate }}</option>
+                            <option value="fr_FR">{{ 'FRENCH' | translate }}</option>
+                        </select>
+                        <select [(ngModel)]="theme" (click)="changeTheme()">
+                            <option selected value="theme-light">{{ 'LIGHT' | translate }}</option>
+                            <option value="theme-dark">{{ 'DARK' | translate }}</option>
+                            <option value="theme-warning">{{ 'WARNING' | translate }}</option>
+                            <option value="theme-primary">{{ 'PRIMARY' | translate }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="readLocalStorageValue('Role') === roleType" (click)="showDropdown = !showDropdown">
+                <img
+                    class="userImage"
+                    src="../../../../assets/images/user.png"
+                    appClickedOutside
+                    (clickedOutside)="onProfileClick()"
+                />
+            </div>
+            <div class="sub-menu" *ngIf="showDropdown && readLocalStorageValue('Role') === roleType">
+                <div class="sub">
+                    <img src="../../../../assets/images/user.png" />
+                    <h3>{{ 'ADMIN' | translate }}</h3>
+                </div>
+                <div class="sub-data">
+                    <a>
+                        <img src="../../../../assets/images/profile.png" />
+                        <p>
+                            <a routerLink="dashboard/editprofile">{{ 'EDIT_PROFILE' | translate }}</a>
+                        </p>
+                    </a>
+                    <a (click)="logout()">
+                        <img src="../../../../assets/images/logout.png" />
+                        <p>
+                            <a>{{ 'LOGOUT' | translate }}</a>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

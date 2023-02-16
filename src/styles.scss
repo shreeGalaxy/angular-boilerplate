@@ -1,0 +1,30 @@
+// Import Themes
+@import 'assets/themes/themes';
+@import 'assets/themes/mixins';
+
+/* ---- Globaly Styling --- */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;
+    padding: 72px 0 41px;
+}
+.main-container {
+    @include themify($themes) {
+        color: themed('textColor');
+        background-color: themed('backgroundColor');
+    }
+    a {
+        transition: all 0.3s ease-in-out;
+        @include themify($themes) {
+            color: themed('textColor');
+        }
+        &:hover {
+            @include themify($themes) {
+                color: themed('hover');
+            }
+        }
+    }
+}

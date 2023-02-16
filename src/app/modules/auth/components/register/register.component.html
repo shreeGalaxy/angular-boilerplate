@@ -1,0 +1,63 @@
+<div>
+    <div class="cont">
+        <div>
+            <h2>{{ 'Sign-Up' | translate }}</h2>
+        </div>
+        <!-- Sign-up Form -->
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div>
+                <input type="text" placeholder="{{ 'PLEASE_ENTER_NAME_HERE' | translate }}" formControlName="name" />
+                <div
+                    *ngIf="
+                        !registrationForm.controls.name?.valid &&
+                        (registrationForm.controls.name?.dirty || registrationForm.controls.name?.touched)
+                    "
+                >
+                    {{ 'NAME_IS_REQUIRED' | translate }}
+                </div>
+            </div>
+            <div>
+                <input type="email" placeholder="{{ 'PLEASE_ENTER_EMAIL_HERE' | translate }}" formControlName="email" />
+                <div
+                    *ngIf="
+                        !registrationForm.controls.email?.valid &&
+                        (registrationForm.controls.email?.dirty || registrationForm.controls.email?.touched)
+                    "
+                >
+                    {{ 'EMAIL_IS_REQUIRED' | translate }}
+                </div>
+            </div>
+            <div>
+                <input
+                    type="password"
+                    placeholder="{{ 'PLEASE_ENTER_PASSWORD_HERE' | translate }}"
+                    formControlName="password"
+                />
+                <div
+                    *ngIf="
+                        !registrationForm.controls.password?.valid &&
+                        (registrationForm.controls.password?.dirty || registrationForm.controls.password?.touched)
+                    "
+                >
+                    <span *ngIf="registrationForm.get('password')?.hasError('required')">{{
+                        'PASSWORD_IS_REQUIRED' | translate
+                    }}</span>
+                    <span *ngIf="registrationForm.get('password')?.hasError('patternError')">{{
+                        'PASSWORD_PATTERN' | translate
+                    }}</span>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div>
+                <input type="submit" value="Sign up" />
+            </div>
+        </form>
+
+        <!-- Sign up-->
+        <div class="formFooter">
+            <p>
+                {{ 'HAVE_AN_ACCOUNT' | translate }}<a routerLink="/auth/login">&nbsp;{{ 'LOGIN' | translate }}</a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+@import '../../../../../assets/themes/_mixins.scss';
+@import '../../../../../assets/style/color.scss';
+:host {
+    > div {
+        height: calc(100vh - 113px);
+        max-width: calc(100% - 200px);
+        margin-left: auto;
+        overflow-y: auto;
+        @include flex(center, center);
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            height: calc(100vh - 182px);
+        }
+        > div {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            text-align: center;
+            max-height: 100%;
+            @media screen and (max-width: 991px) {
+                overflow-y: auto;
+            }
+            h1 {
+                @include h1Font;
+            }
+            p {
+                @include fonts(18px, normal, 26px);
+            }
+            button {
+                border: none;
+                @include button($DarkerOrange, $PureWhite, $INFO, $PureWhite);
+            }
+        }
+    }
+}

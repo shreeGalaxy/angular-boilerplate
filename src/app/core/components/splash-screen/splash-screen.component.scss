@@ -1,0 +1,41 @@
+@import '../../../../assets/style/color.scss';
+@import '../../../../assets/themes/mixins';
+:host {
+    > div {
+        background: $darkBrownRGB;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 1;
+
+        div {
+            position: relative;
+            color: $lightGreyRGB;
+            @include fonts(5em, 500, 5.5em);
+        }
+
+        div:before {
+            content: attr(data-text);
+            position: absolute;
+            overflow: hidden;
+            max-width: 7em;
+            white-space: nowrap;
+            color: $PureWhite;
+            animation: loading 8s linear;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        max-width: 0;
+    }
+}

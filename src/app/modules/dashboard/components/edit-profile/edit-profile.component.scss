@@ -1,0 +1,76 @@
+@import '../../../../../assets/themes/_mixins.scss';
+@import '../../../../../assets/style/color.scss';
+:host {
+    > div {
+        height: calc(100vh - 113px);
+        max-width: calc(100% - 200px);
+        margin-left: auto;
+        overflow-y: auto;
+        @include flex(center, center);
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            height: calc(100vh - 182px);
+        }
+        > div {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+            max-height: 100%;
+            @media screen and (max-width: 991px) {
+                overflow-y: auto;
+            }
+            h1 {
+                font-family: 'Poppins', sans-serif, 'arial';
+                @include fonts(32px, 600);
+                text-align: center;
+                margin: 0 0 10px;
+            }
+
+            h4 {
+                font-family: 'Poppins', sans-serif, 'arial';
+                @include fonts(16px, 600);
+                text-align: center;
+                margin: 0;
+            }
+            .error-text {
+                color: $CherryRed;
+                padding-top: 4px;
+                @include fonts(14px);
+            }
+            .edit-form {
+                margin-top: 30px;
+                padding: 30px;
+                background: $Black;
+                border-radius: 6px;
+                form {
+                    & > div {
+                        + div {
+                            margin-top: 15px;
+                        }
+                        input,
+                        textarea,
+                        button {
+                            padding: 10px;
+                            border: 0;
+                            width: 100%;
+                            @include fonts(1rem);
+                            background-color: $PureWhite;
+                            border-radius: 4px;
+                            resize: none;
+                            outline: none;
+                        }
+                        label {
+                            margin-bottom: 5px;
+                            display: inline-block;
+                            color: white;
+                        }
+                        button {
+                            @include button($PRIMARY, $PureWhite, $INFO, $PureWhite);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

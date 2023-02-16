@@ -1,0 +1,65 @@
+<div>
+    <div>
+        <h1>{{ 'CONTACT_US' | translate }}</h1>
+        <h4>{{ 'WE_LOVE_TO_HEAR_FROM_YOU' | translate }}</h4>
+        <div class="contact-form">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <label>{{ 'NAME' | translate }}</label>
+                    <input formControlName="name" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !contactForm.controls.name?.valid &&
+                            (contactForm.controls.name?.dirty || contactForm.controls.name?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_NAME_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'EMAIL' | translate }}</label>
+                    <input type="text" formControlName="email" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !contactForm.controls.email?.valid &&
+                            (contactForm.controls.email?.dirty || contactForm.controls.email?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_EMAIL_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'PHONE_NUMBER' | translate }}</label>
+                    <input type="text" formControlName="contact" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !contactForm.controls.contact?.valid &&
+                            (contactForm.controls.contact?.dirty || contactForm.controls.contact?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_CONTACT_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'MESSAGE' | translate }}</label>
+                    <textarea formControlName="message" row="4" required></textarea>
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !contactForm.controls.message?.valid &&
+                            (contactForm.controls.message?.dirty || contactForm.controls.message?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_MESSAGE_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <button [disabled]="!contactForm.valid">{{ 'SEND_MESSAGE' | translate }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

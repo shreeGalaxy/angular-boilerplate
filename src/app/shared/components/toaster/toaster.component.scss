@@ -1,0 +1,56 @@
+@import '../../../../assets/style/color.scss';
+@import '../../../../assets/themes/mixins';
+:host {
+    > div {
+        position: fixed;
+        right: 0;
+        width: 300px;
+        height: 80px;
+        top: 56px !important;
+        padding: 0.75rem 1.25rem;
+        margin-top: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem, 0, 0 0.25rem;
+        animation: move 2s both;
+        opacity: 1 !important;
+        a {
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            @include fonts(1.5em);
+            cursor: pointer;
+        }
+        h4 {
+            margin: 0 0 15px;
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+.toast-success {
+    color: $SUCCESS;
+    background-color: $LightGreen;
+    border-color: $LightGreen;
+}
+
+.toast-error {
+    color: $DANGER;
+    background-color: $Lightred;
+    border-color: $Lightred;
+}
+
+.toast-warning {
+    color: $WARNING;
+    background-color: $LightYellow;
+    border-color: $LightYellow;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

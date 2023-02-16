@@ -1,0 +1,86 @@
+@import '../../../../../assets/style/color.scss';
+@import '../../../../../assets/themes/_mixins.scss';
+:host {
+    > div {
+        background-image: url('../../../../../assets/images/loginBackground.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: calc(100vh - 113px);
+        // max-width: calc(100% - 200px);
+        // margin-left: auto;
+        overflow-y: auto;
+        padding: 0 10px;
+        @include flex(center, center);
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            height: calc(100vh - 182px);
+        }
+        .cont {
+            border-radius: 10px 10px 10px 10px;
+            background: $DARK;
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            box-shadow: 0 30px 60px 0 $lightGreyRGB;
+            text-align: center;
+            h2 {
+                text-align: center;
+                @include fonts(20px, 600);
+                text-transform: uppercase;
+                display: inline-block;
+                margin: 0 0 15px;
+                color: $PureWhite;
+            }
+        }
+
+        form {
+            > div {
+                margin-bottom: 15px;
+                input {
+                    border: 0;
+                    width: 100%;
+                    @include fonts(1rem);
+                    background-color: $PureWhite;
+                    color: $Black;
+                    border-radius: 4px;
+                    resize: none;
+                    padding: 10px 15px;
+                    outline: none;
+                    &::placeholder {
+                        color: $DARK;
+                    }
+                }
+                input[type='submit'] {
+                    @include button($PRIMARY, $PureWhite, $INFO, $PureWhite);
+                    padding: 10px 35px;
+                    width: auto;
+                    text-transform: capitalize;
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+                div {
+                    color: $CherryRed !important;
+                    padding: 2px 2px 2px 2px;
+                    text-align: left;
+                    @include fonts(14px);
+                }
+            }
+        }
+    }
+
+    .other-cont {
+        margin-top: 10px;
+        a {
+            color: $PureWhite;
+            display: inline-block;
+            text-decoration: none;
+            @include fonts(16px, 400);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

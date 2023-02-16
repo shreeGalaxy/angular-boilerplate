@@ -1,0 +1,57 @@
+<div>
+    <div class="cont">
+        <div>
+            <h2>{{ 'LOGIN' | translate }}</h2>
+        </div>
+
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div>
+                <input type="email" placeholder="{{ 'EMAIL_HERE' | translate }}" formControlName="email" />
+                <div
+                    *ngIf="
+                        !loginForm.controls.email?.valid &&
+                        (loginForm.controls.email?.dirty || loginForm.controls.email?.touched)
+                    "
+                >
+                    <span *ngIf="loginForm.get('email')?.hasError('required')">
+                        {{ 'EMAIL_IS_REQUIRED' | translate }}
+                    </span>
+                    <span *ngIf="loginForm.get('email')?.hasError('emailValidateError')">
+                        {{ 'VALID_EMAIL_REQUIRED' | translate }}
+                    </span>
+                </div>
+            </div>
+            <div>
+                <input type="password" placeholder="{{ 'PASSWORD_HERE' | translate }}" formControlName="password" />
+                <div
+                    *ngIf="
+                        !loginForm.controls.password?.valid &&
+                        (loginForm.controls.password?.dirty || loginForm.controls.password?.touched)
+                    "
+                >
+                    <span *ngIf="loginForm.get('password')?.hasError('required')">{{
+                        'PASSWORD_IS_REQUIRED' | translate
+                    }}</span>
+                    <span *ngIf="loginForm.get('password')?.hasError('patternError')">{{
+                        'PASSWORD_PATTERN' | translate
+                    }}</span>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div>
+                <input type="submit" value="Sign in" />
+            </div>
+        </form>
+
+        <!--forgot password-->
+        <div class="other-cont">
+            <a routerLink="/auth/forgot">{{ 'FORGOT_PASSWORD' | translate }}</a>
+        </div>
+
+        <!-- Sign up-->
+        <div class="other-cont">
+            <a routerLink="/auth/signup">{{ 'SIGN_UP' | translate }}</a>
+        </div>
+    </div>
+</div>

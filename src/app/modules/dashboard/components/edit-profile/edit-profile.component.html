@@ -1,0 +1,103 @@
+<div>
+    <div>
+        <h1>{{ 'EDIT_YOUR_DETAILS' | translate }}</h1>
+        <div class="edit-form">
+            <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <label>{{ 'NAME' | translate }}</label>
+                    <input formControlName="name" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.name?.valid &&
+                            (editForm.controls.name?.dirty || editForm.controls.name?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_NAME_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'EMAIL' | translate }}</label>
+                    <input formControlName="email" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.email?.valid &&
+                            (editForm.controls.email?.dirty || editForm.controls.email?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_EMAIL_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'PASSWORD' | translate }}</label>
+                    <input formControlName="password" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.password?.valid &&
+                            (editForm.controls.password?.dirty || editForm.controls.password?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_PASSWORD_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'CONFIRM_PASSWORD' | translate }}</label>
+                    <input formControlName="confirmPassword" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.confirmPassword?.valid &&
+                            (editForm.controls.confirmPassword?.dirty || editForm.controls.confirmPassword?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_PASSWORD_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'CITY' | translate }}</label>
+                    <input formControlName="city" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.city?.valid &&
+                            (editForm.controls.city?.dirty || editForm.controls.city?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_CITY_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'PLACE' | translate }}</label>
+                    <input formControlName="place" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.place?.valid &&
+                            (editForm.controls.place?.dirty || editForm.controls.place?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_PLACE_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <label>{{ 'PHONE_NUMBER' | translate }}</label>
+                    <input formControlName="phoneNumber" type="text" required />
+                    <div
+                        class="error-text"
+                        *ngIf="
+                            !editForm.controls.phoneNumber?.valid &&
+                            (editForm.controls.phoneNumber?.dirty || editForm.controls.phoneNumber?.touched)
+                        "
+                    >
+                        {{ 'PLEASE_ENTER_NUMBER_HERE' | translate }}
+                    </div>
+                </div>
+                <div>
+                    <button>{{ 'SEND_MESSAGE' | translate }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

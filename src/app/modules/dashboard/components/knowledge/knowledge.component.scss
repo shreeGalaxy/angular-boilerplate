@@ -1,0 +1,60 @@
+@import '../../../../../assets/themes/_mixins.scss';
+@import '../../../../../assets/style/color.scss';
+:host {
+    > div {
+        height: calc(100vh - 113px);
+        max-width: calc(100% - 200px);
+        margin-left: auto;
+        overflow-y: auto;
+        @include flex(center, center);
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+            height: calc(100vh - 182px);
+        }
+        & > div {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 15px;
+            max-height: 100%;
+            @include flex(center, center, wrap);
+            @media screen and (max-width: 991px) {
+                overflow-y: auto;
+            }
+            & > div {
+                width: calc(50% - 10px);
+                padding: 15px;
+                margin: 10px 5px;
+                @include flex(center, center, wrap, column);
+                border: 1px solid;
+                text-align: center;
+                @media screen and (min-width: 768px) and (max-width: 991px) {
+                    width: 100%;
+                    margin: 10px 0px;
+                }
+                @media screen and (max-width: 767px) {
+                    width: 100%;
+                    margin: 10px 0px;
+                }
+            }
+            @media screen and (max-width: 767px) {
+                overflow-y: scroll;
+            }
+            h4 {
+                margin: 0 0 10px;
+                @include fonts(20px);
+            }
+            a {
+                @include button($PRIMARY, $PureWhite, $INFO, $PureWhite);
+                padding: 10px 20px;
+                @include fonts(14px);
+                text-transform: none;
+                margin-top: 10px;
+            }
+            p {
+                text-align: center;
+                @include fonts(20px);
+            }
+        }
+    }
+}

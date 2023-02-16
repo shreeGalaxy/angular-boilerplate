@@ -1,0 +1,12 @@
+<div [ngClass]="theme">
+    <div class="main-container" *ngIf="splashLoaded">
+        <app-header (themeChangeEvent)="themeChange($event)"></app-header>
+        <app-spinner></app-spinner>
+        <app-sidebar *ngIf="readLocalStorageValue('Role') === roleType"></app-sidebar>
+        <app-toaster *ngFor="let toast of toasts; let i = index" [toast]="toast" [i]="i" (remove)="remove(i)">
+        </app-toaster>
+        <router-outlet></router-outlet>
+        <app-footer></app-footer>
+    </div>
+    <app-splash-screen (isSplashScreenLoaded)="onSplashLoad($event)"></app-splash-screen>
+</div>
