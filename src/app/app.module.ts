@@ -35,5 +35,5 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export class AppModule {}
 // Loader for translation files (i.e. en.json)
 export function createTranslateLoader(http: HttpClient): object {
-    return new TranslateHttpLoader(http, 'https://shreegalaxy.github.io/angular-boilerplate/assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
