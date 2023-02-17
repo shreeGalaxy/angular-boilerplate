@@ -18,7 +18,7 @@ export class TranslateServerLoader implements TranslateLoader {
                 'docs',
                 'Angular-Boilerplate', // Your project name here
                 'browser',
-                'assets',
+                'angular-boilerplate/assets',
                 this.prefix
             );
 
