@@ -15,10 +15,10 @@ export class TranslateServerLoader implements TranslateLoader {
         return new Observable((observer) => {
             const assets_folder = join(
                 process.cwd(),
-                'docs',
+                'dist',
                 'Angular-Boilerplate', // Your project name here
                 'browser',
-                'angular-boilerplate/assets',
+                'assets',
                 this.prefix
             );
 

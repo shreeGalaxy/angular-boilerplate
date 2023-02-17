@@ -100,7 +100,7 @@
                 "server": {
                     "builder": "@angular-devkit/build-angular:server",
                     "options": {
-                        "outputPath": "dist/Angular-Boilerplate/server",
+                        "outputPath": "docs/Angular-Boilerplate/server",
                         "main": "server.ts",
                         "tsConfig": "tsconfig.server.json",
                         "inlineStyleLanguage": "scss"
