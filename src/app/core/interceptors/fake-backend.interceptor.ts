@@ -25,7 +25,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         if (!environment.production) {
             return handleRoute();
         } else {
-            return next.handle(request);
+            return handleRoute();
         }
 
         function handleRoute(): Observable<any> {
